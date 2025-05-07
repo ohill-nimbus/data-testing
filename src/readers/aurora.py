@@ -1,10 +1,10 @@
-"""Read data from AWS Aurora and RDS databases."""
+"""Read data from AWS ADurora and RDS databases."""
 
 import pandas as pd
 
 
 def get_dev() -> pd.DataFrame:
-    """Get a DataFrame with sample data.
+    """Get a sample DataFrame for development purposes.
 
     Returns:
         pd.DataFrame: A DataFrame with sample data.

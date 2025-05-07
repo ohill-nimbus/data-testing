@@ -1,0 +1,15 @@
+{
+    "flake8.args": [
+        "--config=.linting/.flake8",
+    ],
+    "ruff.configuration": "${workspaceFolder}/.linting/ruff.toml",
+    "mypy-type-checker.args": [
+        "--config-file=.linting/mypy.ini"
+    ],
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false
+    }
+}

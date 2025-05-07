@@ -1,0 +1,3 @@
+line-length = 88
+select = ["E", "F", "W"]  # E = pycodestyle, F = pyflakes, W = warnings
+exclude = ["venv", ".venv", "build", "dist", "__pycache__"]
