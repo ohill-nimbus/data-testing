@@ -1,0 +1,21 @@
+repos:
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.4.4  # Replace with the latest version if available
+    hooks:
+      - id: ruff
+        args: ["."]
+  
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.10.0  # Replace with the latest version if available
+    hooks:
+      - id: mypy
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.1.0  # Replace with the latest version if available
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/PyCQA/pydocstyle
+    rev: 6.3.0  # check for latest version
+    hooks:
+      - id: pydocstyle

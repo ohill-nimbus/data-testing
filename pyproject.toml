@@ -1,0 +1,20 @@
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W"]  # E = pycodestyle, F = pyflakes, W = warnings
+exclude = ["venv", ".venv", "build", "dist", "__pycache__"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+exclude = ["venv", ".venv", "build", "dist"]
+
+[tool.flake8]
+max-line-length = 88
+exclude = ["venv", ".venv", "build", "dist", "__pycache__"]
+extend-ignore = ["E203", "W503"]  # Compatible with Black
+
+[tool.pydocstyle]
+convention = "google"  # or "numpy", or "pep257"
+add-ignore = ["D107"]  # example: ignore missing docstring in __init__
+match = "(?!test_).*\\.py"
