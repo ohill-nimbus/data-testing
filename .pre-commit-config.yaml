@@ -9,6 +9,8 @@ repos:
     rev: v1.10.0
     hooks:
       - id: mypy
+        additional_dependencies:
+          - sqlalchemy
         args: ["--config-file=.linting/mypy.ini"]
 
   - repo: https://github.com/pycqa/flake8
