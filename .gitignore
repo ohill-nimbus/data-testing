@@ -1,0 +1,7 @@
+# Data produced by notebooks
+notebooks/data/*
+
+# Pycache
+*.pyc
+
+.env
