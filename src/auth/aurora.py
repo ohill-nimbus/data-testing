@@ -15,6 +15,7 @@ class MySQL:
         user: str,
         password: str,
         database: str,
+        port: int = 3306,
     ) -> None:
         """Initialize the MySQL client.
 
@@ -23,12 +24,13 @@ class MySQL:
             user (str): Username for accessing the host.
             password (str): Password for accessing the host.
             database (str): The database being accessed in the host.
+            port (int): The port on which to access the db.
         """
         config = {
             'user': user,
             'password': password,
             'host': host,
-            'port': 3306,
+            'port': port,
             'database': database,
             'ssl_disabled': False  # Set to True if SSL is not enforced
         }
@@ -159,6 +161,25 @@ class MySQL:
         assert len(columns) == 1, "Query must return exactly one column"
         data = [row[0] for row in data]
         return data
+
+    def insert_rows(
+        self,
+        table: str,
+        data: list[dict[str, Any]],
+    ) -> None:
+        """Insert a row into the specified table.
+
+        Args:
+            table (str): Table name.
+            data (dict): Dictionary of column names and values.
+        """
+        columns = ', '.join(f"`{col}`" for col in data[0].keys())
+        placeholders = ', '.join(['%s'] * len(data[0]))
+        values = [tuple(row[col] for col in data[0].keys()) for row in data]
+        query = f"INSERT INTO {table} ({columns}) VALUES ({placeholders})"
+        self.create_cursor(dict_mode=False)
+        self.cursor.executemany(query, values)
+        self.connection.commit()
 
 
 def get_portal_client() -> MySQL:

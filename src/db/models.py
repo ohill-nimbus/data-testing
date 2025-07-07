@@ -13,5 +13,5 @@ class Client(Base):
     """Table for mapping clients from Sales to Portal."""
     __tablename__ = 'clients'
 
-    portal_id = Column(Integer, primary_key=True)
-    sales_id = Column(VARCHAR, unique=True)
+    sales_id = Column(Integer, primary_key=True)
+    portal_id = Column(VARCHAR)
