@@ -3,5 +3,8 @@ notebooks/data/*
 
 # Pycache
 *.pyc
+*.jar
 
 .env
+
+mysql-connector-j-8.4.0
